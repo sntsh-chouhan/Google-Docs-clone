@@ -3,6 +3,7 @@ import 'quill/dist/quill.snow.css'
 import {Box} from '@mui/material';
 import { useEffect } from 'react';
 import styled from '@emotion/styled';
+import {io} from 'socket.io-client';
 
 const Components = styled.div`
     background: #F5F5F5;
@@ -37,7 +38,11 @@ const Editor = () =>{
             },
             theme: 'snow'
           })
-    }, [])
+    }, []);
+
+    useEffect(()=>{
+        io('http://localhost:9000/')
+    } ,[])
 
     return (
         <Components>
